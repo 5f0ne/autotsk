@@ -1,0 +1,8 @@
+env/
+data/
+dist/
+build/
+*-setup-*
+**/__pycache__
+**/*.egg-info/
+autotsk-result/
