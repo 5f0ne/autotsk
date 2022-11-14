@@ -43,6 +43,7 @@ def main(args_=None):
     # Extract the partition entries from mmls output
     lines = mmlsOutput.split("\n")
 
+
     print("")
     print("")
     print("Extracting Offsets")
@@ -52,10 +53,12 @@ def main(args_=None):
     partitionOffsets = []
     for line in lines:
         cols = line.split("  ")
-        if(len(cols) == 6):
+        while("" in cols):
+            cols.remove("")
+        if(len(cols) > 0 and cols[0][0] == "0"):
             col = cols[1].replace(" ", "")
-            if(":" in cols[1] or (col != "--------" and col != "Meta")):
-                clean = "".join(s.lstrip("0") for s in cols[2]).replace(" ", "")
+            if((":" in col) or (col != "-------" and col != "Meta")):
+                clean = cols[2].replace(" ", "")
                 partitionOffsets.append(clean)
                 print("Offset found: " + clean)
               
