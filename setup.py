@@ -5,7 +5,7 @@ with open("README.md", "r") as r:
 
 setup(
     name="autotsk",            
-    version="1.0.0",
+    version="1.0.1",
     author="5f0",
     url="https://github.com/5f0ne/autotsk",
     description="Automatically creates mmls, fsstat and fls results for image files",

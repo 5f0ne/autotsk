@@ -53,7 +53,8 @@ def main(args_=None):
     for line in lines:
         cols = line.split("  ")
         if(len(cols) == 6):
-            if(":" in cols[1]):
+            col = cols[1].replace(" ", "")
+            if(":" in cols[1] or (col != "--------" and col != "Meta")):
                 clean = "".join(s.lstrip("0") for s in cols[2]).replace(" ", "")
                 partitionOffsets.append(clean)
                 print("Offset found: " + clean)
